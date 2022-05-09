@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Login.css";
 import sabiaLogo from "../assets/logos/logo_fucsia.png";
 import sabiaBanner from "../assets/images/sabiaBanner.png";
@@ -19,7 +20,10 @@ const Login = () => {
             <img src={formLogo} alt="form-logo" />
             <h3>Inicio de sesión</h3>
             <p>
-              ¿No tienes una cuenta? <strong>Registrate</strong>
+              ¿No tienes una cuenta?{" "}
+              <Link to="/register">
+                <strong>Registrate</strong>
+              </Link>
             </p>
             <form action="">
               <div className="email">

@@ -1,0 +1,145 @@
+.main-register {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: linear-gradient(
+    to left,
+    var(--secondary) 0%,
+    var(--secondary) 50%,
+    transparent 50%,
+    transparent 100%
+  );
+}
+@media (max-width: 768px) {
+  .main-register {
+    overflow: auto;
+    background-color: var(--secondary);
+  }
+}
+@media (max-width: 425px) {
+  .main-register {
+    background-color: var(--white);
+    overflow: hidden;
+    background-image: none;
+  }
+}
+.main-register__container {
+  height: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .main-register__container {
+    grid-template-columns: 1fr;
+  }
+}
+.main-register-left {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .main-register-left {
+    display: none;
+  }
+}
+.main-register-left img:nth-child(1) {
+  max-height: 8rem;
+  margin-top: 1rem;
+}
+.main-register-left img:nth-child(2) {
+  width: 100%;
+  max-width: 50rem;
+}
+.main-register-right {
+  background-color: var(--secondary);
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 425px) {
+  .main-register-right {
+    background-color: var(--white);
+  }
+}
+.main-register-right .form-container {
+  max-width: 45rem;
+  max-height: 67rem;
+  text-align: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 1rem;
+  background-color: var(--white);
+  padding: 6rem;
+  border-radius: 1.5rem;
+  box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
+}
+@media (max-width: 768px) {
+  .main-register-right .form-container {
+    padding: 4rem 6rem;
+  }
+}
+@media (max-width: 425px) {
+  .main-register-right .form-container {
+    box-shadow: none;
+  }
+}
+.main-register-right .form-container img {
+  width: 12.5rem;
+  margin: 0 auto;
+}
+.main-register-right .form-container h3 {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+.main-register-right .form-container p {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.main-register-right .form-container p strong {
+  color: var(--secondary);
+  cursor: pointer;
+}
+.main-register-right .form-container p strong:hover {
+  text-decoration: underline;
+}
+.main-register-right form .email,
+.main-register-right form .password {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+.main-register-right form input {
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--gray);
+  outline: none;
+}
+.main-register-right form input:hover {
+  border: 1px solid var(--secondary);
+}
+.main-register-right form button {
+  font-family: var(--main-font);
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  margin-top: 2rem;
+  border: none;
+  background-color: var(--secondary);
+  font-size: 2rem;
+  color: var(--white);
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.main-register-right form button:hover {
+  background-color: var(--secondary-hover);
+}
+.main-register-right .form-container .forgot-pass {
+  color: var(--secondary);
+  font-weight: normal;
+  cursor: pointer;
+}
+.main-register-right .form-container .forgot-pass:hover {
+  color: var(--secondary-hover);
+}
