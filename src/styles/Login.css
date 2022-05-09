@@ -2,21 +2,51 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-image: linear-gradient(
+    to left,
+    var(--primary) 0%,
+    var(--primary) 50%,
+    transparent 50%,
+    transparent 100%
+  );
+}
+@media (max-width: 768px) {
+  .main {
+    overflow: auto;
+    background-color: var(--primary);
+  }
+}
+@media (max-width: 425px) {
+  .main {
+    background-color: var(--white);
+    overflow: hidden;
+    background-image: none;
+  }
 }
 .main__container {
   height: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
+@media (max-width: 768px) {
+  .main__container {
+    grid-template-columns: 1fr;
+  }
+}
 .main-left {
   text-align: center;
+}
+@media (max-width: 768px) {
+  .main-left {
+    display: none;
+  }
 }
 .main-left img:nth-child(1) {
   max-height: 8rem;
   margin-top: 1rem;
 }
 .main-left img:nth-child(2) {
+  width: 100%;
   max-width: 50rem;
 }
 .main-right {
@@ -24,7 +54,11 @@
   display: grid;
   place-items: center;
 }
-
+@media (max-width: 425px) {
+  .main-right {
+    background-color: var(--white);
+  }
+}
 .main-right .form-container {
   max-width: 45rem;
   max-height: 67rem;
@@ -38,6 +72,16 @@
   padding: 6rem;
   border-radius: 1.5rem;
   box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
+}
+@media (max-width: 768px) {
+  .main-right .form-container {
+    padding: 4rem 6rem;
+  }
+}
+@media (max-width: 425px) {
+  .main-right .form-container {
+    box-shadow: none;
+  }
 }
 .form-container img {
   width: 12.5rem;
@@ -53,6 +97,10 @@
 }
 .form-container p strong {
   color: var(--primary);
+  cursor: pointer;
+}
+.form-container p strong:hover {
+  text-decoration: underline;
 }
 form .email,
 form .password {
@@ -66,10 +114,14 @@ form input {
   padding: 1.5rem;
   border-radius: 1.5rem;
   border: 1px solid var(--gray);
-  outline: var(--primary);
+  outline: none;
+}
+form input:hover {
+  border: 1px solid var(--primary);
 }
 form button {
-  padding: 1.3rem;
+  font-family: var(--main-font);
+  padding: 0.5rem;
   border-radius: 1.5rem;
   margin-top: 2rem;
   border: none;
@@ -83,11 +135,11 @@ form button {
 form button:hover {
   background-color: var(--primary-hover);
 }
-.form-container p {
+.form-container .forgot-pass {
   color: var(--primary);
   font-weight: normal;
   cursor: pointer;
 }
-.form-container p:hover {
+.form-container .forgot-pass:hover {
   color: var(--primary-hover);
 }

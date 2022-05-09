@@ -10,7 +10,7 @@
   --warn-black: #212121;
   --black: #000000;
   --white: rgb(255, 255, 255);
-  --gray: gray;
+  --gray: #d4d4d4;
   /* ----------------Font Sizes -----------------*/
   --sm: 1.2rem;
   --md: 1.6rem;

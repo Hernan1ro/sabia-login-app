@@ -9,7 +9,9 @@ const Login = () => {
     <main className="main">
       <div className="main__container container">
         <div className="main-left">
-          <img src={sabiaLogo} alt="sabia-logo" />
+          <a href="https://sabiasyf.com/">
+            <img src={sabiaLogo} alt="sabia-logo" />
+          </a>
           <img src={sabiaBanner} alt="sabia-family-image" />
         </div>
         <div className="main-right">
@@ -40,7 +42,7 @@ const Login = () => {
               </div>
               <button type="submit">Inicia Sesión</button>
             </form>
-            <p>¿Olvidaste tu contraseña?</p>
+            <p className="forgot-pass">¿Olvidaste tu contraseña?</p>
           </div>
         </div>
       </div>
