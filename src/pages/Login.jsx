@@ -7,15 +7,15 @@ import formLogo from "../assets/illustrations/undraw_personal_finance_tqcd.svg";
 
 const Login = () => {
   return (
-    <main className="main">
-      <div className="main__container container">
-        <div className="main-left">
+    <main className="main-login">
+      <div className="main-login__container container">
+        <div className="main-login-left">
           <a href="https://sabiasyf.com/">
             <img src={sabiaLogo} alt="sabia-logo" />
           </a>
           <img src={sabiaBanner} alt="sabia-family-image" />
         </div>
-        <div className="main-right">
+        <div className="main-login-right">
           <div className="form-container">
             <img src={formLogo} alt="form-logo" />
             <h3>Inicio de sesión</h3>
@@ -42,6 +42,7 @@ const Login = () => {
                   name="password"
                   placeholder="Tu contraseña"
                   required
+                  autoComplete="true"
                 />
               </div>
               <button type="submit">Inicia Sesión</button>

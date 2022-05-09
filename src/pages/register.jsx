@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Register.css";
 import sabiaLogo from "../assets/logos/logo_verde.png";
 import sabiaBanner from "../assets/images/sabiaBanner-green.png";
@@ -17,9 +18,9 @@ const Register = () => {
         <div className="main-register-right">
           <div className="form-container">
             <img src={formLogo} alt="form-logo" />
-            <h3>Inicio de sesión</h3>
+            <h3>Registro</h3>
             <p>
-              ¿No tienes una cuenta? <strong>Registrate</strong>
+              Unete y empieza a prosperar tus <strong>Finanzas</strong>
             </p>
             <form action="">
               <div className="email">
@@ -38,11 +39,15 @@ const Register = () => {
                   name="password"
                   placeholder="Tu contraseña"
                   required
+                  autoComplete="true"
                 />
               </div>
               <button type="submit">Inicia Sesión</button>
             </form>
-            <p className="forgot-pass">¿Olvidaste tu contraseña?</p>
+            <p>¿Ya tienes una cuenta?</p>
+            <Link to="/">
+              <p className="login-link">Inicia sesión aquí</p>
+            </Link>
           </div>
         </div>
       </div>

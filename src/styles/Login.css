@@ -1,4 +1,4 @@
-.main {
+.main-login {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -11,55 +11,58 @@
   );
 }
 @media (max-width: 768px) {
-  .main {
+  .main-login {
     overflow: auto;
     background-color: var(--primary);
   }
 }
 @media (max-width: 425px) {
-  .main {
+  .main-login {
     background-color: var(--white);
     overflow: hidden;
     background-image: none;
   }
 }
-.main__container {
+.main-login__container {
   height: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 @media (max-width: 768px) {
-  .main__container {
+  .main-login__container {
     grid-template-columns: 1fr;
   }
 }
-.main-left {
+.main-login-left {
   text-align: center;
 }
 @media (max-width: 768px) {
-  .main-left {
+  .main-login-left {
     display: none;
   }
 }
-.main-left img:nth-child(1) {
+.main-login-left img:nth-child(1) {
   max-height: 8rem;
   margin-top: 1rem;
+  animation-name: show;
+  animation-duration: 2s;
+  animation-fill-mode: both;
 }
-.main-left img:nth-child(2) {
+.main-login-left img:nth-child(2) {
   width: 100%;
   max-width: 50rem;
 }
-.main-right {
+.main-login-right {
   background-color: var(--primary);
   display: grid;
   place-items: center;
 }
 @media (max-width: 425px) {
-  .main-right {
+  .main-login-right {
     background-color: var(--white);
   }
 }
-.main-right .form-container {
+.main-login-right .form-container {
   max-width: 45rem;
   max-height: 67rem;
   text-align: center;
@@ -72,54 +75,67 @@
   padding: 6rem;
   border-radius: 1.5rem;
   box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
-  .main-right .form-container {
+  .main-login-right .form-container {
     padding: 4rem 6rem;
   }
 }
 @media (max-width: 425px) {
-  .main-right .form-container {
+  .main-login-right .form-container {
     box-shadow: none;
+    padding: 4rem 0rem;
   }
 }
-.form-container img {
+.main-login .form-container img {
   width: 12.5rem;
   margin: 0 auto;
 }
-.form-container h3 {
+.main-login .form-container h3 {
   font-size: 2.8rem;
   font-weight: bold;
 }
-.form-container p {
+.main-login .form-container p {
   font-size: 1.6rem;
   font-weight: 600;
 }
-.form-container p strong {
+.main-login .form-container p strong {
   color: var(--primary);
   cursor: pointer;
 }
-.form-container p strong:hover {
+.main-login .form-container p strong:hover {
   text-decoration: underline;
 }
-form .email,
-form .password {
+.main-login form .email,
+.main-login form .password {
   display: flex;
   flex-direction: column;
   text-align: left;
   font-size: 1.6rem;
   font-weight: normal;
 }
-form input {
+.main-login form input {
   padding: 1.5rem;
   border-radius: 1.5rem;
   border: 1px solid var(--gray);
   outline: none;
 }
-form input:hover {
+.main-login form input:hover {
   border: 1px solid var(--primary);
 }
-form button {
+.main-login form button {
   font-family: var(--main-font);
   padding: 0.5rem;
   border-radius: 1.5rem;
@@ -132,14 +148,14 @@ form button {
   font-weight: bold;
   cursor: pointer;
 }
-form button:hover {
+.main-login form button:hover {
   background-color: var(--primary-hover);
 }
-.form-container .forgot-pass {
+.main-login .form-container .forgot-pass {
   color: var(--primary);
   font-weight: normal;
   cursor: pointer;
 }
-.form-container .forgot-pass:hover {
+.main-login .form-container .forgot-pass:hover {
   color: var(--primary-hover);
 }

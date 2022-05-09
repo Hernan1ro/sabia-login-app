@@ -44,6 +44,9 @@
 .main-register-left img:nth-child(1) {
   max-height: 8rem;
   margin-top: 1rem;
+  animation-name: show;
+  animation-duration: 2s;
+  animation-fill-mode: both;
 }
 .main-register-left img:nth-child(2) {
   width: 100%;
@@ -72,6 +75,17 @@
   padding: 6rem;
   border-radius: 1.5rem;
   box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media (max-width: 768px) {
   .main-register-right .form-container {
@@ -81,6 +95,7 @@
 @media (max-width: 425px) {
   .main-register-right .form-container {
     box-shadow: none;
+    padding: 4rem 0rem;
   }
 }
 .main-register-right .form-container img {
@@ -97,11 +112,8 @@
 }
 .main-register-right .form-container p strong {
   color: var(--secondary);
-  cursor: pointer;
 }
-.main-register-right .form-container p strong:hover {
-  text-decoration: underline;
-}
+
 .main-register-right form .email,
 .main-register-right form .password {
   display: flex;
@@ -135,10 +147,12 @@
 .main-register-right form button:hover {
   background-color: var(--secondary-hover);
 }
-.main-register-right .form-container .forgot-pass {
+.main-register-right .form-container .login-link {
   color: var(--secondary);
   font-weight: normal;
   cursor: pointer;
+  text-decoration: underline;
+  margin-top: -1rem;
 }
 .main-register-right .form-container .forgot-pass:hover {
   color: var(--secondary-hover);
