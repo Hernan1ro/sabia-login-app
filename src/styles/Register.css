@@ -115,7 +115,9 @@
 }
 
 .main-register-right form .email,
-.main-register-right form .password {
+.main-register-right form .password,
+.main-register-right form .name,
+.main-register-right form .lastName {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -123,10 +125,17 @@
   font-weight: normal;
 }
 .main-register-right form input {
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 1.5rem;
   border: 1px solid var(--gray);
   outline: none;
+  margin-bottom: 1rem;
+  font-size: var(--md);
+}
+@media (min-width: 768px) {
+  .main-register-right form input {
+    padding: 1.6rem;
+  }
 }
 .main-register-right form input:hover {
   border: 1px solid var(--secondary);
@@ -135,7 +144,7 @@
   font-family: var(--main-font);
   padding: 0.5rem;
   border-radius: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border: none;
   background-color: var(--secondary);
   font-size: 2rem;

@@ -137,6 +137,7 @@
   border-radius: 1.5rem;
   border: 1px solid var(--gray);
   outline: none;
+  font-size: var(--md);
 }
 .main-login form input:hover {
   border: 1px solid var(--primary);

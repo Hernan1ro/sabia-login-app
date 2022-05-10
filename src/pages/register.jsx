@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Register.css";
 import sabiaLogo from "../assets/logos/logo_verde.png";
@@ -16,6 +16,52 @@ const Register = () => {
   const password = useInputValue();
   const name = useInputValue();
   const lastName = useInputValue();
+
+  //------------On submit-------------------//
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //------------ data validation-------------//
+    const testEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+      email.value
+    );
+    if (!testEmail) {
+      alert("Correo electrónico no válido");
+    } else if (testEmail && password.value.length > 0) {
+      const user = {
+        first_name: name.value,
+        last_name: lastName.value,
+        username: email.value,
+        password: password.value,
+      };
+      onLogin(user);
+    }
+  };
+  //------------- API query ------------//
+  const onLogin = (user) => {
+    setLoading(true);
+    const URL =
+      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/users/create/";
+
+    axios
+      .post(URL, user)
+      .then(function (response) {
+        console.log(response);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        console.log(error);
+        setLoading(false);
+        showError();
+      });
+  };
+  //-------------- Error handler--------------//
+  const showError = () => {
+    setError(true);
+    setTimeout(() => {
+      setError(false);
+    }, 3000);
+  };
 
   return (
     <main className="main-register">
@@ -35,7 +81,6 @@ const Register = () => {
             </p>
             <form onSubmit={handleSubmit}>
               <div className="name">
-                <label htmlFor="name">Nombres</label>
                 <input
                   type="text"
                   name="name"
@@ -45,7 +90,6 @@ const Register = () => {
                 />
               </div>
               <div className="lastName">
-                <label htmlFor="lastName">Apellidos</label>
                 <input
                   type="text"
                   name="lastName"
@@ -55,7 +99,6 @@ const Register = () => {
                 />
               </div>
               <div className="email">
-                <label htmlFor="email">Correo Electrónico</label>
                 <input
                   type="email"
                   name="email"
@@ -65,7 +108,6 @@ const Register = () => {
                 />
               </div>
               <div className="password">
-                <label htmlFor="password">Contraseña</label>
                 <input
                   type="password"
                   name="password"
@@ -75,8 +117,13 @@ const Register = () => {
                   {...password}
                 />
               </div>
-              <button type="submit">Inicia Sesión</button>
+              {loading ? (
+                <Spinner type="secondary" />
+              ) : (
+                <button type="submit">Registrate</button>
+              )}
             </form>
+            {error && <Error type={"secondary"} />}
             <p>¿Ya tienes una cuenta?</p>
             <Link to="/">
               <p className="login-link">Inicia sesión aquí</p>
