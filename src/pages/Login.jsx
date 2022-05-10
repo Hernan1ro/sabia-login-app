@@ -26,9 +26,9 @@ const Login = () => {
       onLogin(user);
     }
   };
+  //------------- API query ------------//
   const onLogin = (user) => {
-    const URL =
-      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/token/login/";
+    const URL = process.env.API_LOGIN;
 
     axios
       .post(URL, user)
