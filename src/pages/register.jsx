@@ -24,6 +24,24 @@ const Register = () => {
             </p>
             <form action="">
               <div className="email">
+                <label htmlFor="email">Nombres</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Nombres"
+                  required
+                />
+              </div>
+              <div className="email">
+                <label htmlFor="email">Apellidos</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Apellidos"
+                  required
+                />
+              </div>
+              <div className="email">
                 <label htmlFor="email">Correo Electrónico</label>
                 <input
                   type="email"

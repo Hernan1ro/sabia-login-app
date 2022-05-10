@@ -72,7 +72,7 @@
   align-content: center;
   gap: 1rem;
   background-color: var(--white);
-  padding: 6rem;
+  padding: 2rem 6rem;
   border-radius: 1.5rem;
   box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
   animation-name: show;
@@ -95,7 +95,7 @@
 @media (max-width: 425px) {
   .main-register-right .form-container {
     box-shadow: none;
-    padding: 4rem 0rem;
+    padding: 1rem;
   }
 }
 .main-register-right .form-container img {
