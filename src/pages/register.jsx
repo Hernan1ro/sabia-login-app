@@ -26,8 +26,14 @@ const Register = () => {
       email.value
     );
     if (!testEmail) {
-      alert("Correo electrónico no válido");
-    } else if (testEmail && password.value.length > 0) {
+      showError();
+    } else if (
+      testEmail &&
+      password.value.length > 0 &&
+      password.value.length < 128 &&
+      name.value.length < 150 &&
+      lastName.value.length < 150
+    ) {
       const user = {
         first_name: name.value,
         last_name: lastName.value,
@@ -35,13 +41,14 @@ const Register = () => {
         password: password.value,
       };
       onLogin(user);
+    } else {
+      showError();
     }
   };
   //------------- API query ------------//
   const onLogin = (user) => {
     setLoading(true);
-    const URL =
-      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/users/create/";
+    const URL = import.meta.env.VITE_API_REGISTER;
 
     axios
       .post(URL, user)

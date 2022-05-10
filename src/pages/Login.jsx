@@ -28,13 +28,14 @@ const Login = () => {
     } else if (testEmail && password.value.length > 0) {
       const user = { username: email.value, password: password.value };
       onLogin(user);
+    } else {
+      showError();
     }
   };
   //------------- API query ------------//
   const onLogin = (user) => {
     setLoading(true);
-    const URL =
-      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/token/login/";
+    const URL = import.meta.env.VITE_API_LOGIN;
 
     axios
       .post(URL, user)
