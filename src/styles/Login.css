@@ -102,6 +102,7 @@
   .main-login-right .form-container {
     box-shadow: none;
     padding: 4rem 0rem;
+    width: 80%;
   }
 }
 .main-login .form-container img {

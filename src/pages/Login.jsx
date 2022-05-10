@@ -33,7 +33,6 @@ const Login = () => {
   //------------- API query ------------//
   const onLogin = (user) => {
     setLoading(true);
-    console.log("cargando...");
     const URL =
       "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/token/login/";
 
@@ -99,7 +98,7 @@ const Login = () => {
                 />
               </div>
               {loading ? (
-                <Spinner />
+                <Spinner type="primary" />
               ) : (
                 <button type="submit">Inicia Sesión</button>
               )}

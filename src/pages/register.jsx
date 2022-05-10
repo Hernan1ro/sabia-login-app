@@ -4,8 +4,19 @@ import "../styles/Register.css";
 import sabiaLogo from "../assets/logos/logo_verde.png";
 import sabiaBanner from "../assets/images/sabiaBanner-green.png";
 import formLogo from "../assets/illustrations/undraw_wallet_aym5.svg";
+import { useInputValue } from "../hooks/useInputValue";
+import axios from "axios";
+import Spinner from "../components/Spinner";
+import Error from "../components/Error";
 
 const Register = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const email = useInputValue();
+  const password = useInputValue();
+  const name = useInputValue();
+  const lastName = useInputValue();
+
   return (
     <main className="main-register">
       <div className="main-register__container container">
@@ -22,23 +33,25 @@ const Register = () => {
             <p>
               Unete y empieza a prosperar tus <strong>Finanzas</strong>
             </p>
-            <form action="">
-              <div className="email">
-                <label htmlFor="email">Nombres</label>
+            <form onSubmit={handleSubmit}>
+              <div className="name">
+                <label htmlFor="name">Nombres</label>
                 <input
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="name"
                   placeholder="Nombres"
                   required
+                  {...name}
                 />
               </div>
-              <div className="email">
-                <label htmlFor="email">Apellidos</label>
+              <div className="lastName">
+                <label htmlFor="lastName">Apellidos</label>
                 <input
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="lastName"
                   placeholder="Apellidos"
                   required
+                  {...lastName}
                 />
               </div>
               <div className="email">
@@ -48,6 +61,7 @@ const Register = () => {
                   name="email"
                   placeholder="Tu email"
                   required
+                  {...email}
                 />
               </div>
               <div className="password">
@@ -58,6 +72,7 @@ const Register = () => {
                   placeholder="Tu contraseña"
                   required
                   autoComplete="true"
+                  {...password}
                 />
               </div>
               <button type="submit">Inicia Sesión</button>

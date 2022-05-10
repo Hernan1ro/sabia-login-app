@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles/Spinner.css";
 
-const Spinner = () => {
+const Spinner = ({ type }) => {
   return (
     <div className="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div className={type}></div>
+      <div className={type}></div>
+      <div className={type}></div>
+      <div className={type}></div>
     </div>
   );
 };
