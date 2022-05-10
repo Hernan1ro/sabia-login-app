@@ -1,10 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Login.css";
 import sabiaLogo from "../assets/logos/logo_fucsia.png";
 import sabiaBanner from "../assets/images/sabiaBanner.png";
 import formLogo from "../assets/illustrations/undraw_personal_finance_tqcd.svg";
 import { useInputValue } from "../hooks/useInputValue";
+import axios from "axios";
 
 const Login = () => {
   const email = useInputValue();
@@ -13,9 +14,30 @@ const Login = () => {
   //------------On submit-------------------//
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Dando submit");
-    console.log(email.value);
-    console.log(password.value);
+
+    //------------ data validation-------------//
+    const testEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+      email.value
+    );
+    if (!testEmail) {
+      alert("Correo electrónico no válido");
+    } else if (testEmail && password.value.length > 0) {
+      const user = { username: email.value, password: password.value };
+      onLogin(user);
+    }
+  };
+  const onLogin = (user) => {
+    const URL =
+      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/token/login/";
+
+    axios
+      .post(URL, user)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <main className="main-login">
