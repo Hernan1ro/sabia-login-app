@@ -88,6 +88,11 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .main-login-right .form-container {
+    width: 40rem;
+  }
+}
 @media (max-width: 768px) {
   .main-login-right .form-container {
     padding: 4rem 6rem;

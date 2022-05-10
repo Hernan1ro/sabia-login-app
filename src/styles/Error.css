@@ -1,0 +1,18 @@
+.error-msg {
+  display: flex;
+  align-items: center;
+}
+.error-msg em {
+  font-size: var(--sm);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.error-msg .primary {
+  color: var(--primary);
+}
+.error-msg .secondary {
+  color: var(--secondary);
+}
+.error-msg img {
+  max-width: 2rem;
+}

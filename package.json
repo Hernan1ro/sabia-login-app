@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite --open --port 8000",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0"

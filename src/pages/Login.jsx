@@ -6,8 +6,12 @@ import sabiaBanner from "../assets/images/sabiaBanner.png";
 import formLogo from "../assets/illustrations/undraw_personal_finance_tqcd.svg";
 import { useInputValue } from "../hooks/useInputValue";
 import axios from "axios";
+import Spinner from "../components/Spinner";
+import Error from "../components/Error";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const email = useInputValue();
   const password = useInputValue();
 
@@ -28,17 +32,31 @@ const Login = () => {
   };
   //------------- API query ------------//
   const onLogin = (user) => {
-    const URL = process.env.API_LOGIN;
+    setLoading(true);
+    console.log("cargando...");
+    const URL =
+      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/token/login/";
 
     axios
       .post(URL, user)
       .then(function (response) {
         console.log(response);
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
+        setLoading(false);
+        showError();
       });
   };
+  //-------------- Error handler--------------//
+  const showError = () => {
+    setError(true);
+    setTimeout(() => {
+      setError(false);
+    }, 3000);
+  };
+
   return (
     <main className="main-login">
       <div className="main-login__container container">
@@ -80,8 +98,13 @@ const Login = () => {
                   {...password}
                 />
               </div>
-              <button type="submit">Inicia Sesión</button>
+              {loading ? (
+                <Spinner />
+              ) : (
+                <button type="submit">Inicia Sesión</button>
+              )}
             </form>
+            {error && <Error type={"primary"} />}
             <p className="forgot-pass">¿Olvidaste tu contraseña?</p>
           </div>
         </div>
