@@ -4,8 +4,19 @@ import "../styles/Login.css";
 import sabiaLogo from "../assets/logos/logo_fucsia.png";
 import sabiaBanner from "../assets/images/sabiaBanner.png";
 import formLogo from "../assets/illustrations/undraw_personal_finance_tqcd.svg";
+import { useInputValue } from "../hooks/useInputValue";
 
 const Login = () => {
+  const email = useInputValue();
+  const password = useInputValue();
+
+  //------------On submit-------------------//
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Dando submit");
+    console.log(email.value);
+    console.log(password.value);
+  };
   return (
     <main className="main-login">
       <div className="main-login__container container">
@@ -25,7 +36,7 @@ const Login = () => {
                 <strong>Registrate</strong>
               </Link>
             </p>
-            <form action="">
+            <form onSubmit={handleSubmit}>
               <div className="email">
                 <label htmlFor="email">Correo Electrónico</label>
                 <input
@@ -33,6 +44,7 @@ const Login = () => {
                   name="email"
                   placeholder="Tu email"
                   required
+                  {...email}
                 />
               </div>
               <div className="password">
@@ -43,6 +55,7 @@ const Login = () => {
                   placeholder="Tu contraseña"
                   required
                   autoComplete="true"
+                  {...password}
                 />
               </div>
               <button type="submit">Inicia Sesión</button>
