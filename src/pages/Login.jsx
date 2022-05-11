@@ -39,7 +39,9 @@ const Login = () => {
   //------------- API query ------------//
   const onLogin = (user) => {
     setLoading(true);
-    const URL = import.meta.env.VITE_API_LOGIN;
+    // const URL = import.meta.env.VITE_API_LOGIN;
+    const URL =
+      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/token/login/";
 
     axios
       .post(URL, user)

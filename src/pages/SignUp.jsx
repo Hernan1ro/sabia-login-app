@@ -52,7 +52,9 @@ const Register = () => {
   //------------- API query ------------//
   const onLogin = (user) => {
     setLoading(true);
-    const URL = import.meta.env.VITE_API_REGISTER;
+    // const URL = import.meta.env.VITE_API_REGISTER;
+    const URL =
+      "http://ec2-3-91-159-6.compute-1.amazonaws.com/api/users/create/";
 
     axios
       .post(URL, user)
