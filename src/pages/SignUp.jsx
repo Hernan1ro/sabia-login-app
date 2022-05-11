@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 import sabiaLogo from "../assets/logos/logo_verde.png";
-import sabiaBanner from "../assets/images/sabiaBanner-green.png";
+import sabiaBanner from "../assets/Images/sabiaBanner-green.png";
 import formLogo from "../assets/illustrations/undraw_wallet_aym5.svg";
 import { useInputValue } from "../hooks/useInputValue";
 import axios from "axios";
