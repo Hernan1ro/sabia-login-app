@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 import sabiaLogo from "../assets/logos/logo_verde.png";
 import sabiaBanner from "../assets/images/sabiaBanner-green.png";
@@ -8,6 +8,7 @@ import { useInputValue } from "../hooks/useInputValue";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import Error from "../components/Error";
+import useAccessToken from "../hooks/useAccessToken";
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,8 @@ const Register = () => {
   const password = useInputValue();
   const name = useInputValue();
   const lastName = useInputValue();
+  const { setNewUser, setToken } = useAccessToken();
+  const navigate = useNavigate();
 
   //------------On submit-------------------//
   const handleSubmit = (e) => {
@@ -53,11 +56,10 @@ const Register = () => {
     axios
       .post(URL, user)
       .then(function (response) {
-        console.log(response);
+        handleLogin(response);
         setLoading(false);
       })
       .catch(function (error) {
-        console.log(error);
         setLoading(false);
         showError();
       });
@@ -69,7 +71,12 @@ const Register = () => {
       setError(false);
     }, 3000);
   };
-
+  //--------------- Handle register ----------------//
+  const handleLogin = ({ data }) => {
+    setToken(data.id);
+    setNewUser(data);
+    navigate("/main");
+  };
   return (
     <main className="main-register">
       <div className="main-register__container container">

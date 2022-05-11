@@ -1,0 +1,146 @@
+.main-nav {
+  height: 6rem;
+  background-color: var(--primary);
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInDown;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.main-nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: inherit;
+  padding: 0 1rem;
+}
+.main-nav__container img {
+  width: 14rem;
+  cursor: pointer;
+}
+.account-options {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.account-options img {
+  width: 4rem;
+}
+.account-options p {
+  font-weight: bold;
+  font-size: var(--md);
+  color: var(--white);
+  cursor: pointer;
+}
+.account-options p:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 2rem;
+  padding: 4rem 1rem;
+}
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+}
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 30rem;
+  align-items: center;
+}
+.profile-details img {
+  width: 20rem;
+}
+.profile-details h3 {
+  font-size: var(--xl);
+  font-weight: bold;
+  color: var(--black);
+}
+.profile-details span {
+  font-size: var(--md);
+}
+.profile-details button {
+  font-family: var(--main-font);
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  margin-top: 2rem;
+  border: none;
+  background-color: var(--primary);
+  font-size: 2rem;
+  color: var(--white);
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.profile-details button:hover {
+  background-color: var(--primary-hover);
+}
+.activity-section {
+  box-shadow: 4px 4px 8px 2px rgb(0 0 0 / 20%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+.activity-section h2 {
+  font-size: var(--xxl);
+  font-weight: bold;
+  color: var(--primary);
+}
+.login-notification {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 4rem;
+}
+.login-notification span {
+  font-size: var(--xxl);
+}
+.login-notification img {
+  width: 3rem;
+}
+@media (max-width: 768px) {
+  .activity-section {
+    width: 90%;
+  }
+  .activity-section span {
+    font-size: var(--xl);
+  }
+  .profile-details {
+    width: 80%;
+  }
+}
+
+.fadeInUp {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

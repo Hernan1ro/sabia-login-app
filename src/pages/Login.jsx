@@ -15,7 +15,7 @@ const Login = () => {
   const [error, setError] = useState(false);
   const email = useInputValue();
   const password = useInputValue();
-  const { token, setToken } = useAccessToken();
+  const { setToken } = useAccessToken();
   const navigate = useNavigate();
 
   //------------On submit-------------------//
