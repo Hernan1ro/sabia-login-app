@@ -34,7 +34,7 @@
 .account-options img {
   width: 4rem;
 }
-.account-options p {
+.account-options a {
   font-weight: bold;
   font-size: var(--md);
   color: var(--white);
@@ -122,7 +122,7 @@
     width: 90%;
   }
   .activity-section span {
-    font-size: var(--xl);
+    font-size: var(--lg);
   }
   .profile-details {
     width: 80%;
