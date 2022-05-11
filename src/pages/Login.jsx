@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import sabiaLogo from "../assets/logos/logo_fucsia.png";
 import sabiaBanner from "../assets/images/sabiaBanner.png";
@@ -8,12 +8,15 @@ import { useInputValue } from "../hooks/useInputValue";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import Error from "../components/Error";
+import useAccessToken from "../hooks/useAccessToken";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const email = useInputValue();
   const password = useInputValue();
+  const { token, setToken } = useAccessToken();
+  const navigate = useNavigate();
 
   //------------On submit-------------------//
   const handleSubmit = (e) => {
@@ -24,7 +27,7 @@ const Login = () => {
       email.value
     );
     if (!testEmail) {
-      alert("Correo electrónico no válido");
+      showError();
     } else if (testEmail && password.value.length > 0) {
       const user = { username: email.value, password: password.value };
       onLogin(user);
@@ -40,11 +43,10 @@ const Login = () => {
     axios
       .post(URL, user)
       .then(function (response) {
-        console.log(response);
+        handleLogin(response);
         setLoading(false);
       })
       .catch(function (error) {
-        console.log(error);
         setLoading(false);
         showError();
       });
@@ -56,7 +58,11 @@ const Login = () => {
       setError(false);
     }, 3000);
   };
-
+  //--------------- Handle login ----------------//
+  const handleLogin = ({ data: { access } }) => {
+    setToken(access);
+    navigate("/main");
+  };
   return (
     <main className="main-login">
       <div className="main-login__container container">
