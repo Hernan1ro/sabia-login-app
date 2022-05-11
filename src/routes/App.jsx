@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Register from "../pages/Register.jsx";
 import Page404 from "../pages/Page404";
 import Main from "../pages/MainSection";
 import useAccessToken from "../hooks/useAccessToken";
