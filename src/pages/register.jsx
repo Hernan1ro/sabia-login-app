@@ -13,6 +13,7 @@ import useAccessToken from "../hooks/useAccessToken";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const email = useInputValue();
   const password = useInputValue();
   const name = useInputValue();
@@ -61,6 +62,7 @@ const Register = () => {
       })
       .catch(function (error) {
         setLoading(false);
+        setErrorMsg("Ha habido un error, intentalo nuevamente");
         showError();
       });
   };
@@ -137,7 +139,7 @@ const Register = () => {
                 <button type="submit">Registrate</button>
               )}
             </form>
-            {error && <Error type={"secondary"} />}
+            {error && <Error type={"secondary"} message={errorMsg} />}
             <p>¿Ya tienes una cuenta?</p>
             <Link to="/">
               <p className="login-link">Inicia sesión aquí</p>

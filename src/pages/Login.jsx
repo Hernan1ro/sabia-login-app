@@ -13,6 +13,7 @@ import useAccessToken from "../hooks/useAccessToken";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const email = useInputValue();
   const password = useInputValue();
   const { setToken } = useAccessToken();
@@ -47,6 +48,7 @@ const Login = () => {
         setLoading(false);
       })
       .catch(function (error) {
+        setErrorMsg("Password o email incorrecto, intenta nuevamente");
         setLoading(false);
         showError();
       });
@@ -110,7 +112,7 @@ const Login = () => {
                 <button type="submit">Inicia Sesión</button>
               )}
             </form>
-            {error && <Error type={"primary"} />}
+            {error && <Error type={"primary"} message={errorMsg} />}
             <p className="forgot-pass">¿Olvidaste tu contraseña?</p>
           </div>
         </div>
