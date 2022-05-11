@@ -31,6 +31,7 @@ Once you have downloaded the project in your local enviroment you need to execut
   <img src="./AppPreview/desktopview1.png" alt="Desktop view 1">
   <img src="./AppPreview/desktopview2.png" alt="Desktop view 2">
   <img src="./AppPreview/desktopview3.png" alt="Desktop view 3">
+  <img src="./AppPreview/desktopview4.png" alt="Desktop view 4">
 </details>
 
 <details>
@@ -38,6 +39,7 @@ Once you have downloaded the project in your local enviroment you need to execut
   <img src="./AppPreview/mobileview1.png" alt="Mobile view 1">
   <img src="./AppPreview/mobileview2.png" alt="Mobile view 2">
   <img src="./AppPreview/mobileview3.png" alt="Mobile view 3">
+  <img src="./AppPreview/mobileview4.png" alt="Mobile view 4">
 </details>
 <br>
 <br>
