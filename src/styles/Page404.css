@@ -1,0 +1,22 @@
+.page404 {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.page404 h1 {
+  font-size: var(--xxl);
+  color: var(--primary);
+  font-weight: bold;
+}
+.page404 img {
+  width: 20rem;
+}
+
+.page404 h2 {
+  font-size: var(--lg);
+  color: var(--primary);
+  font-weight: bold;
+}
