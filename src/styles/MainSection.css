@@ -26,13 +26,18 @@
   width: 14rem;
   cursor: pointer;
 }
+@media (max-width: 425px) {
+  .main-nav__container img {
+    width: 10rem;
+  }
+}
 .account-options {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 .account-options img {
-  width: 4rem;
+  width: 3rem;
 }
 .account-options a {
   font-weight: bold;
@@ -67,7 +72,7 @@
   align-items: center;
 }
 .profile-details img {
-  width: 20rem;
+  width: 10rem;
 }
 .profile-details h3 {
   font-size: var(--xl);
@@ -109,7 +114,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 4rem;
+  margin-top: 2rem;
 }
 .login-notification span {
   font-size: var(--xxl);
