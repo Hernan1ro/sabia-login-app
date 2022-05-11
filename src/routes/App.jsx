@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login";
-import Register from "../pages/Register";
+import SignUp from "../pages/SignUp";
 import Page404 from "../pages/Page404";
 import Main from "../pages/MainSection";
 import useAccessToken from "../hooks/useAccessToken";
@@ -14,7 +14,7 @@ const App = () => {
         {token && <Route path="/" element={<Navigate to="/main" />} />}
         {token && <Route path="/register" element={<Navigate to="/main" />} />}
         <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<SignUp />} />
         <Route path="/main" element={<Main />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
